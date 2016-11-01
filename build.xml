@@ -26,6 +26,7 @@
             <pathelement location="${build.dir}" />
     </path>
     
+    <javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="junit.class.path" />
     <import file="nbproject/build-impl.xml"/>
     <!--
 
