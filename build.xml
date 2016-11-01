@@ -9,6 +9,7 @@
 <!-- in the project's Project Properties dialog box.-->
 <project name="JenkinsDemo" default="default" basedir=".">
     <description>Builds, tests, and runs the project JenkinsDemo.</description>
+    <import file="nbproject/build-impl.xml"/>
     <property name="JUNIT_HOME" value="~/"/>
     <path id="JUnit 4.libraryclasspath">
         <pathelement location="${JUNIT_HOME}/junit.jar"/>
@@ -24,7 +25,6 @@
         <src path="src"/>
         <classpath refid="projectname.classpath"/>
     </javac>
-    <import file="nbproject/build-impl.xml"/>
     <!--
 
     There exist several targets which are by default empty and which can be 
