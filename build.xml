@@ -9,22 +9,24 @@
 <!-- in the project's Project Properties dialog box.-->
 <project name="JenkinsDemo" default="default" basedir=".">
     <description>Builds, tests, and runs the project JenkinsDemo.</description>
-    <import file="nbproject/build-impl.xml"/>
-    <property name="JUNIT_HOME" value="~/"/>
-    <path id="JUnit 4.libraryclasspath">
-        <pathelement location="${JUNIT_HOME}/junit.jar"/>
-        <pathelement location="${JUNIT_HOME}/hamcrest-core.jar"/>
-    </path>
-    <path id="projectname.classpath">
-        <pathelement location="/bin"/>
-        <path refid="JUnit 4.libraryclasspath"/>
-    </path>
+    
+    <property name="src.dir" location="src" />
+    <property name="test.dir" location="tests" />
 
-    <!--in your javac task include the classpath -->
-    <javac debug="true" debuglevel="${debuglevel}" destdir="/bin" source="${source}" target="${target}">
-        <src path="src"/>
-        <classpath refid="projectname.classpath"/>
-    </javac>
+    <property name="build.dir" location="bin" />
+    <property name="build.test.dir" location="bin/tests" />
+
+    <!-- Variables used for JUnit testin -->
+
+    <property name="test.report.dir" location="testreport" />
+    <!-- Define the classpath which includes the junit.jar and the classes after compiling-->
+    <path id="junit.class.path">
+            <pathelement location="lib/junit-4.11.jar" />
+            <pathelement location="lib/hamcrest-core-1.3.jar" />
+            <pathelement location="${build.dir}" />
+    </path>
+    
+    <import file="nbproject/build-impl.xml"/>
     <!--
 
     There exist several targets which are by default empty and which can be 
