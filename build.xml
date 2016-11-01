@@ -26,7 +26,20 @@
             <pathelement location="${build.dir}" />
     </path>
     
-    <javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="junit.class.path" />
+    <path id="class.path">
+        <fileset dir="lib">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+    <target name="compile">
+        <echo>=== COMPILE ===</echo>
+
+        <echo>Compiling ${src.dir} files ...</echo>
+        <javac debug="on" srcdir="${src.dir}" destdir="${build.dir}" includes="com/**">
+          <classpath refid="class.path" />
+        </javac>
+    </target>
+    
     <import file="nbproject/build-impl.xml"/>
     <!--
 
