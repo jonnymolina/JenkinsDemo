@@ -19,6 +19,7 @@ Properties: platforms.JDK_1.7.home=$JAVA_HOME
 - sudo yum install java-devel
 - ssh-keygen -t rsa -C "jonathanmolina225@gmail.com"
 - Install Jenkins thru the downloads page on jenkins website using Red Hat Distributions
+- sudo service jenkins start
 - Manage Jenkins > Manage Plugins > Available Tab > Select GitHub Authentication plugin > Install without restart
 - Create New Job > Freestyle project > Add GitHub url
 - Manage Jenkins > Global Tool Configuration > Add JDK > /usr/lib/jvm/java/
